@@ -29,7 +29,7 @@ export default Ember.Component.extend({
     set(key, value) {
       const circle = this.get('circle');
       if (circle) {
-        circle.setCenter(value);
+        circle.setCenter(parseFloat(value));
       }
 
       this.set('_center');
