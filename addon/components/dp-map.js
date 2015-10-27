@@ -14,11 +14,17 @@ export default Ember.Component.extend({
 
   lon: -117.15,
 
-  center: Ember.computed('lat', 'lon', function() {
-    return {
-      lat: this.get('lat'),
-      lng: this.get('lon')
-    };
+  center: Ember.computed('lat', 'lon', {
+    get() {
+      return {
+        lat: this.get('lat'),
+        lng: this.get('lon')
+      };
+    },
+    set(key, value) {
+      this.set('lat', Ember.get(value, 'lat'));
+      this.set('lon', Ember.get(value, 'lng'));
+    }
   }),
 
   zoom: 11,

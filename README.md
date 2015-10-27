@@ -12,7 +12,7 @@ or
 * `npm install`
 * `bower install`
 
-then add these entries into your config/environment.js:
+then add these entries to your config/environment.js:
 
 ```
 ENV.contentSecurityPolicy = {

@@ -11,10 +11,10 @@ export default Ember.Component.extend({
   _center: null,
 
   center: Ember.computed('_center', {
-    get: function() {
+    get() {
       return this.get('_center');
     },
-    set: function(key, value) {
+    set(key, value) {
       const circle = this.get('circle');
       if (circle) {
         circle.setCenter(value);
@@ -28,10 +28,10 @@ export default Ember.Component.extend({
   _radius: 500,
 
   radius: Ember.computed('_radius', {
-    get: function() {
+    get() {
       return this.get('_radius');
     },
-    set: function(key, value) {
+    set(key, value) {
       const circle = this.get('circle');
       if (circle) {
         circle.setRadius(value);
@@ -52,10 +52,10 @@ export default Ember.Component.extend({
   _strokeColor: '#FF0000',
 
   strokeColor: Ember.computed('_strokeColor', {
-    get: function() {
+    get() {
       return this.get('_strokeColor');
     },
-    set: function(key, value) {
+    set(key, value) {
       this.setOption({'strokeColor': value});
       this.set('_strokeColor');
       return value;
@@ -65,10 +65,10 @@ export default Ember.Component.extend({
   _strokeOpacity: '#FF0000',
 
   strokeOpacity: Ember.computed('_strokeOpacity', {
-    get: function() {
+    get() {
       return this.get('_strokeOpacity');
     },
-    set: function(key, value) {
+    set(key, value) {
       this.setOption({'strokeOpacity': value});
       this.set('_strokeOpacity');
       return value;
@@ -78,10 +78,10 @@ export default Ember.Component.extend({
   _strokeWeight: 2,
 
   strokeWeight: Ember.computed('_strokeWeight', {
-    get: function() {
+    get() {
       return this.get('_strokeWeight');
     },
-    set: function(key, value) {
+    set(key, value) {
       this.setOption({'strokeWeight': value});
       this.set('_strokeWeight');
       return value;
@@ -91,10 +91,10 @@ export default Ember.Component.extend({
   _fillColor: '#FF0000',
 
   fillColor: Ember.computed('_fillColor', {
-    get: function() {
+    get() {
       return this.get('_fillColor');
     },
-    set: function(key, value) {
+    set(key, value) {
       this.setOption({'fillColor': value});
       this.set('_fillColor');
       return value;
@@ -104,10 +104,10 @@ export default Ember.Component.extend({
   _fillOpacity: 0.35,
 
   fillOpacity: Ember.computed('_fillOpacity', {
-    get: function() {
+    get() {
       return this.get('_fillOpacity');
     },
-    set: function(key, value) {
+    set(key, value) {
       this.setOption({'fillOpacity': value});
       this.set('_fillOpacity');
       return value;
