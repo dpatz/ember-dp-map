@@ -29,7 +29,7 @@ export default Ember.Component.extend({
     set(key, value) {
       const circle = this.get('circle');
       if (circle) {
-        circle.setCenter(parseFloat(value));
+        circle.setCenter(value);
       }
 
       this.set('_center');
@@ -44,7 +44,7 @@ export default Ember.Component.extend({
     set(key, value) {
       const circle = this.get('circle');
       if (circle) {
-        circle.setRadius(value);
+        circle.setRadius(parseFloat(value));
       }
 
       this.set('_radius');
