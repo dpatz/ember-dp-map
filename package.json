@@ -1,6 +1,6 @@
 {
   "name": "ember-dp-map",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Google maps component for ember.",
   "directories": {
     "doc": "doc",
