@@ -24,6 +24,7 @@ export default Ember.Component.extend({
     set(key, value) {
       this.set('lat', Ember.get(value, 'lat'));
       this.set('lon', Ember.get(value, 'lng'));
+      return value;
     }
   }),
 
