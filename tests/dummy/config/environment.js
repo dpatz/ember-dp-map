@@ -16,6 +16,18 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+
+    contentSecurityPolicy: {
+      'default-src': "'none'",
+      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' https://*.googleapis.com https://*.gstatic.com",
+      'style-src': "'self' 'unsafe-inline' https://*.googleapis.com",
+      'img-src': "'self' https://*.googleapis.com https://*.gstatic.com data:",
+      'font-src': "'self' https://*.gstatic.com"
+    },
+
+    'ember-dp-map': {
+      googleMapsAPIKey: ''
     }
   };
 

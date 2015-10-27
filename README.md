@@ -1,6 +1,6 @@
-# Ember-dp-map
+# ember-dp-map
 
-This README outlines the details of collaborating on this Ember addon.
+Google maps component for Ember.
 
 ## Installation
 
