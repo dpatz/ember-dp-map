@@ -10,6 +10,18 @@ export default Ember.Component.extend({
 
   _center: null,
 
+  _radius: 500,
+
+  _strokeColor: '#000000',
+
+  _strokeOpacity: 0.8,
+
+  _strokeWeight: 2,
+
+  _fillColor: '#000000',
+
+  _fillOpacity: 0.2,
+
   center: Ember.computed('_center', {
     get() {
       return this.get('_center');
@@ -24,8 +36,6 @@ export default Ember.Component.extend({
       return value;
     }
   }),
-
-  _radius: 500,
 
   radius: Ember.computed('_radius', {
     get() {
@@ -49,8 +59,6 @@ export default Ember.Component.extend({
     }
   },
 
-  _strokeColor: '#FF0000',
-
   strokeColor: Ember.computed('_strokeColor', {
     get() {
       return this.get('_strokeColor');
@@ -61,8 +69,6 @@ export default Ember.Component.extend({
       return value;
     }
   }),
-
-  _strokeOpacity: '#FF0000',
 
   strokeOpacity: Ember.computed('_strokeOpacity', {
     get() {
@@ -75,8 +81,6 @@ export default Ember.Component.extend({
     }
   }),
 
-  _strokeWeight: 2,
-
   strokeWeight: Ember.computed('_strokeWeight', {
     get() {
       return this.get('_strokeWeight');
@@ -88,8 +92,6 @@ export default Ember.Component.extend({
     }
   }),
 
-  _fillColor: '#FF0000',
-
   fillColor: Ember.computed('_fillColor', {
     get() {
       return this.get('_fillColor');
@@ -100,8 +102,6 @@ export default Ember.Component.extend({
       return value;
     }
   }),
-
-  _fillOpacity: 0.35,
 
   fillOpacity: Ember.computed('_fillOpacity', {
     get() {
