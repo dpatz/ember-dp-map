@@ -4,6 +4,8 @@ Google maps component for Ember.
 
 ## Installation
 
+`ember install dpatz/ember-dp-map`
+
 * `git clone` this repository
 * `npm install`
 * `bower install`
