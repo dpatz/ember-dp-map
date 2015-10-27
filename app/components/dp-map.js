@@ -1,0 +1,1 @@
+export { default } from 'ember-dp-map/components/dp-map';
