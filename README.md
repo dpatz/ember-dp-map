@@ -4,13 +4,25 @@ Google maps component for Ember.
 
 ## Installation
 
-`ember install dpatz/ember-dp-map`
+`npm install ember-dp-map`
 
 or
 
 * `git clone` this repository
 * `npm install`
 * `bower install`
+
+then add these entries into your config/environment.js:
+
+```
+ENV.contentSecurityPolicy = {
+  'default-src': "'none'",
+  'script-src': "'self' 'unsafe-inline' 'unsafe-eval' https://*.googleapis.com https://*.gstatic.com",
+  'style-src': "'self' 'unsafe-inline' https://*.googleapis.com",
+  'img-src': "'self' https://*.googleapis.com https://*.gstatic.com data:",
+  'font-src': "'self' https://*.gstatic.com"
+}
+```
 
 ## Usage
 ```
