@@ -1,10 +1,9 @@
 import Ember from 'ember';
 import layout from '../templates/components/dp-circle';
+import BaseMapElement from './_dp-base-map-element';
 
-export default Ember.Component.extend({
+export default BaseMapElement.extend({
   layout: layout,
-
-  map: null,
 
   circle: null,
 
@@ -114,21 +113,17 @@ export default Ember.Component.extend({
     }
   }),
 
-  didInsertElement() {
-    this.nearestWithProperty('isMap').get('deferredMap').promise.then(map => {
-      this.set('map', map);
-
-      const circle = new google.maps.Circle({
-        map: this.get('map'),
-        center: this.get('center'),
-        radius: this.get('radius'),
-        strokeColor: this.get('strokeColor'),
-        strokeOpacity: this.get('strokeOpacity'),
-        strokeWeight: this.get('strokeWeight'),
-        fillColor: this.get('fillColor'),
-        fillOpacity: this.get('fillOpacity')
-      });
-      this.set('circle', circle);
+  didLoadMap() {
+    const circle = new google.maps.Circle({
+      map: this.get('map'),
+      center: this.get('center'),
+      radius: this.get('radius'),
+      strokeColor: this.get('strokeColor'),
+      strokeOpacity: this.get('strokeOpacity'),
+      strokeWeight: this.get('strokeWeight'),
+      fillColor: this.get('fillColor'),
+      fillOpacity: this.get('fillOpacity')
     });
+    this.set('circle', circle);
   }
 });

@@ -1,10 +1,9 @@
 import Ember from 'ember';
 import layout from '../templates/components/dp-marker';
+import BaseMapElement from './_dp-base-map-element';
 
-export default Ember.Component.extend({
+export default BaseMapElement.extend({
   layout: layout,
-
-  map: null,
 
   _position: null,
 
@@ -40,16 +39,11 @@ export default Ember.Component.extend({
     }
   }),
 
-  didInsertElement() {
-    this.nearestWithProperty('isMap').get('deferredMap').promise.then(map => {
-      this.set('map', map);
-
-      const marker = new google.maps.Marker({
-        map: map,
-        position: this.get('position'),
-        title: this.get('title')
-      });
-      this.set('marker', marker);
+  didLoadMap() {
+    const marker = new google.maps.Marker({
+      map: this.get('map'),
+      position: this.get('position'),
+      title: this.get('title')
     });
-  }
-});
+    this.set('marker', marker);
+  }});
