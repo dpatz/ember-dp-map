@@ -8,11 +8,13 @@ export default Ember.Component.extend({
 
   isMap: true,
 
-  deferredMap: Ember.RSVP.defer(),
+  deferredMap: null,
 
   lat: 32.96,
 
   lon: -117.15,
+
+  zoom: 11,
 
   center: Ember.computed('lat', 'lon', {
     get() {
@@ -28,7 +30,9 @@ export default Ember.Component.extend({
     }
   }),
 
-  zoom: 11,
+  willInsertElement() {
+    this.set('deferredMap', Ember.RSVP.defer());
+  },
 
   didInsertElement() {
     const map = new google.maps.Map(this.$()[0], {
@@ -36,7 +40,16 @@ export default Ember.Component.extend({
       zoom: this.get('zoom')
     });
     this.set('map', map);
-    this.get('deferredMap').resolve(map);
+
+    this.setupMapListeners();
+  },
+
+  setupMapListeners() {
+    const map = this.get('map');
+
+    google.maps.event.addListenerOnce(map, 'idle', () => {
+      this.get('deferredMap').resolve(map);
+    });
 
     google.maps.event.addListener(map, 'center_changed', () => {
       Ember.run.later(() => {
@@ -47,5 +60,12 @@ export default Ember.Component.extend({
         this.sendAction('on-center-change', this.get('center'));
       });
     });
+  },
+
+  willDestroy() {
+    this._super();
+
+    const map = this.get('map', map);
+    google.maps.event.clearInstanceListeners(map);
   }
 });
