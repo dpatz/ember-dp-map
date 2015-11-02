@@ -1,6 +1,10 @@
 import Ember from "ember";
 
+const { service } = Ember.inject;
+
 export default Ember.Route.extend({
+  geocoder: service('geocoder'),
+
   model() {
     return Ember.Object.create({
       center: {
@@ -13,6 +17,12 @@ export default Ember.Route.extend({
   actions: {
     'map-center-changed'(center) {
       this.get('controller.model').set('center', center);
+    },
+
+    'log-center'() {
+      this.get('geocoder').geocode(this.get('controller.model.center')).then(address_components => {
+        console.log(address_components);
+      });
     }
   }
 });

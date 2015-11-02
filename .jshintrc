@@ -4,6 +4,7 @@
     "window",
     "-Promise",
     "google",
+    "geocoder",
     "GoogleMapsLoader"
   ],
   "browser": true,
