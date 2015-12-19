@@ -1,6 +1,6 @@
 {
   "name": "ember-dp-map",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Google maps component for ember.",
   "directories": {
     "doc": "doc",
@@ -11,7 +11,10 @@
     "start": "ember server",
     "test": "ember try:testall"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dpatz/ember-dp-map.git"
+  },
   "engines": {
     "node": ">= 0.10.0"
   },
